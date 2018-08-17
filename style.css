@@ -1,0 +1,222 @@
+    /* GENERAL SETTINGS */
+
+    html,
+    body {
+      position: relative;
+      background: #ccc;
+      box-sizing:border-box;
+    }
+    html,
+    body,
+    p,
+    b,
+    a,
+    i,
+    table {
+      font-family: Arial;
+      font-size: 12px;
+      line-height: 20px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* PAGE SETTINGS */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      margin: 10px auto 20px auto;
+      padding: 0;
+      background-color: #fff;
+      background-image: url('https://files.slack.com/files-pri/T908A1V6V-FC88RRBMY/achtergrond_-_kopie.jpg');
+      background-repeat: no-repeat;
+      background-size: 210mm;
+      -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+
+    }
+
+    /* HEADER */
+    .shop-address {
+      position: absolute;
+      display: block;
+      margin-top: 50mm; /* TODO: Create A variable */
+      margin-right: 0mm;
+      margin-bottom: 0mm;
+      margin-left: 0mm; /* TODO: Create A variable */
+    }
+
+    .customer-address {
+      position: relative;
+      display: block;
+      padding-top: 50mm; /* TODO: Create A variable */
+      padding-right: 0mm;
+      padding-bottom: 0mm;
+      padding-left: 100mm; /* TODO: Create A variable */
+    }
+
+
+    /* Invoice Details */
+
+    .invoice-details {
+      height: 135px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      margin: 0mm;
+      padding: 0mm;
+    }
+    .invoice-details-general {
+      width: calc(50% - 1mm); /*(50% - padding */
+      float: left;
+    }
+
+    .invoice-details-car-info {
+      width: 50%;
+      float: left;
+    }
+
+    dt,
+    dd {
+      float: left;
+    }
+    dt {
+      clear: both;
+      width: 150px;
+    }
+    dt::after {
+      content: ':';
+    }
+
+    /* Invoice Table */
+
+    .invoice-lines{
+        width:100%;
+        border-collapse: collapse;
+    }
+    .invoice-lines-body tr{
+        line-height: 25px;
+    }
+    .invoice-lines-body tr:nth-child(odd){
+        background-color:rgba(0,0,0,0.08);
+    }
+
+
+    /* Invoice lines summary */
+    /* TODO: ADD MARGIN VARIABLE */
+    .invoice-lines-previous-page,.invoice-lines-next-page{
+        display:none;
+        margin:3mm 0;
+        position: relative;
+        border: 1px solid #000;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        height: 25px;
+    }
+    .invoice-lines-previous-page-text, .invoice-lines-next-page-text{
+        display:block;
+        float:left;
+    }
+    .invoice-lines-previous-page-amount,.invoice-lines-next-page-amount{
+        display:block;
+        float:right;
+    }
+
+    /* FOOTER */
+
+    .footer{
+        position: absolute;
+        display: none;
+        bottom: 20mm; /* replace woth var */
+        padding: 0;
+        border:1px solid black;
+        border-radius:5px;
+        outline:none; /* Remove this */
+        left:0; /* replace with var  */
+        right:0;/* replace with var  */
+        height:140px;
+    }
+    .footer-left-column{
+        width:50%;
+        float:left;
+        padding-top:1mm;
+        padding-left:1mm;
+        padding-bottom:1mm;
+    }
+    .footer-right-column{
+        width:50%;
+        float:right;
+    }
+
+    .footer-vat-table{
+        border:1px solid black;
+        border-radius:5px;
+        outline:none; /* Remove this */
+        width:400px;
+        min-height: 100px;
+    }
+
+    .footer-vat-table-head td{
+        outline:none; /* Remove this */
+        border-bottom:1px solid black;
+        border-radius:0;
+    }
+
+    .footer-totals{
+        position:absolute;
+        bottom:10px;
+        right:10px;
+    }
+    .footer-totals tr td:not(:first-child){
+        width:70px;
+        text-align:right;
+    }
+    .bordered{
+        border-top:1px solid black;
+    }
+    /* HELPERS */
+
+    .header-spacer {
+      height: 50mm; /* TODO: Create A Variable */
+      display: block;
+    }
+    .text-bold {
+      font-weight: 800;
+    }
+
+    .text-right{
+        text-align: right;
+    }
+    .text-left{
+        text-align:left;
+    }
+    .clearfix{
+        clear:both;
+    }
+    .pageMargin{
+        margin:0 10mm;
+    }
+    .padding-left{
+        padding-left:1mm;
+    }
+    .padding-right{
+        padding-right:1mm;
+    }
+
+    /* for PDF GENERATION ONLY */
+    @media print {
+      html,
+      body {
+        background: #fff;
+      }
+      .page {
+        margin: 0;
+        padding: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }

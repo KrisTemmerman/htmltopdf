@@ -1,0 +1,237 @@
+        .clearAll {
+            clear: both;
+        }
+
+        .alignLeft {
+            text-align: left;
+        }
+
+        .alignRight {
+            text-align: right;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            position: relative;
+            margin: 10px auto 20px auto;
+            padding: 0;
+            background-color: #fff;
+            background-image: url("https://files.slack.com/files-pri/T908A1V6V-FC88RRBMY/achtergrond_-_kopie.jpg");
+            background-size: 210mm;
+            -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+        }
+
+
+
+        .header {}
+
+        .pageMarginLeftAndRight {
+            margin: 0mm 5mm 0mm 5mm;
+            width: 199mm;
+            display: block;
+            position: relative;
+        }
+
+
+        .customerAddress {}
+
+        .companyAddress {
+            position: absolute;
+        }
+
+
+
+        .invoiceAndCarData {
+            position: relative;
+            width: 100%;
+            height: 135px;
+            border: 1px solid #000;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            margin: 0mm;
+            padding: 0mm;
+        }
+
+        .invoiceAndCarData div {
+            float: left;
+            position: relative;
+            display: block;
+            width: 48%;
+            padding: 2mm 0mm 2mm 2mm;
+        }
+
+        .invoiceAndCarData div p {
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .invoiceAndCarData div p span {
+            float: left;
+            width: 130px;
+        }
+
+        .invoiceAndCarData div p i {
+            font-style: normal;
+        }
+
+
+        .content {
+            overflow: hidden;
+        }
+
+        .invoiceTableHeader table,
+        .invoiceTableLines {
+            table-layout: fixed;
+            width: 100%;
+            text-align: right;
+            border-collapse: collapse;
+        }
+
+        .invoiceTableHeader table th,
+        .invoiceTableHeader table td,
+        .invoiceTableLines th,
+        .invoiceTableLines td {
+            line-height: 25px;
+            height: 25px;
+            vertical-align: top;
+        }
+
+        .invoiceTableHeader table tr {
+            page-break-inside: avoid !important;
+            page-break-after: auto !important;
+        }
+
+        .invoiceTableHeader table tr td {}
+
+        .invoiceTableLines tr:nth-of-type(odd) {
+            background: rgba(0, 0, 0, .08);
+        }
+
+
+        .transportNextPageWrapper {
+            position: absolute;
+            bottom: 0;
+            padding: 0;
+        }
+
+        #transportPreviousPage1 {
+            display: none;
+        }
+
+        .transportNextPageDiv,
+        .transportPreviousPageDiv {
+            position: relative;
+            border: 1px solid #000;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            width: 100%;
+            height: 25px;
+        }
+
+        .transportNextPageDiv p,
+        .transportPreviousPageDiv p {
+            padding-left: 10px;
+            line-height: 25px;
+            float: left;
+        }
+
+        .transportNextPageDiv span,
+        .transportPreviousPageDiv span {
+            float: right;
+            padding-right: 42px;
+            line-height: 25px;
+        }
+
+
+        .footer {
+            position: absolute;
+            width: 100%;
+            display: block;
+            bottom: 0;
+            padding: 0;
+        }
+
+        .invoiceComment {}
+
+        .invoiceAmountTotal {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+            border: 1px solid #000;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            margin: 5px 0mm 5px 0mm;
+            padding: 0mm;
+        }
+
+        #vatAmounts {
+            width: 400px;
+            min-height: 100px;
+            border: 1px solid #000;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            margin: 10px 0px 10px 10px;
+        }
+
+        #vatAmounts table {
+            table-layout: fixed;
+            width: 400px;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        #vatAmounts table th {
+            border-bottom: 1px solid #000;
+            font-weight: normal;
+            height: 25px;
+        }
+
+        #vatAmounts table td {}
+
+        .paddingLeft10 {
+            padding-left: 10px;
+        }
+
+        .paddingRight10 {
+            padding-right: 10px;
+        }
+
+        .receptionistText {
+            margin: 0px 0px 10px 10px;
+            padding: 0;
+        }
+
+        #totalAmountDiv {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        #totalAmountDiv table {
+            text-align: right;
+            border-collapse: collapse;
+        }
+
+        .totalAmountDivTd {
+            border-top: 1px solid #000;
+        }
+
+        .invoiceClosingText {}
+
+
+        .marginAddress {
+            position: relative;
+        }
+
+        .marginBottom {
+            position: relative;
+        }

@@ -1,0 +1,587 @@
+<html><head>
+    <meta charset="utf-8">
+	<style>
+
+        html, body, p, b, a, i, table {
+            font-family: Arial;
+            font-size:12px;
+            line-height:20px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .clearAll {
+            clear: both;
+        }
+        .alignLeft {
+            text-align: left;
+        }
+        .alignRight {
+            text-align: right;
+        }
+		html, body {
+			position: relative;
+            background: #ccc;
+		}
+		.page {
+			width: 210mm;
+			height: 297mm;
+			position: relative;
+			margin: 10px auto 20px auto;
+            padding: 0;
+			background-color: #fff;
+            background-image: ;
+            background-size: 210mm;
+            -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+		}
+        @media print {
+            html, body {
+                background: #fff;
+            }
+            .page {
+                margin: 0;
+                padding: 0;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+		.header {
+
+		}
+		.pageMarginLeftAndRight {
+            margin: 0mm 5mm 0mm 5mm;
+            width: 199mm;
+            display: block;
+            position: relative;
+        }
+
+
+        .customerAddress {
+        }
+        .companyAddress {
+            position: absolute;
+        }
+
+
+
+        .invoiceAndCarData {
+            position: relative;
+            width: 100%;
+            height: 135px;
+            border: 1px solid #000;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            border-radius:5px;
+            margin: 0mm;
+            padding: 0mm;
+        }
+        .invoiceAndCarData div {
+            float: left;
+            position: relative;
+            display: block;
+            width: 48%;
+            padding: 2mm 0mm 2mm 2mm;
+        }
+        .invoiceAndCarData div p {
+            -o-text-overflow: ellipsis;
+            text-overflow:    ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+        }
+        .invoiceAndCarData div p span {
+            float: left;
+            width: 130px;
+        }
+        .invoiceAndCarData div p i {
+            font-style: normal;
+        }
+
+
+		.content {
+			overflow: hidden;
+		}
+        .invoiceTableHeader table, .invoiceTableLines {
+            table-layout: fixed;
+            width: 100%;
+            text-align: right;
+            border-collapse: collapse;
+        }
+        .invoiceTableHeader table th, .invoiceTableHeader table td, .invoiceTableLines th, .invoiceTableLines td {
+            line-height: 25px;
+            height: 25px;
+            vertical-align: top;
+        }
+        .invoiceTableHeader table tr {
+            page-break-inside:avoid!important;
+            page-break-after:auto!important;
+        }
+        .invoiceTableHeader table tr td {
+
+        }
+        .invoiceTableLines tr:nth-of-type(odd) {
+            background: rgba(0,0,0,.08);
+        }
+
+
+        .transportNextPageWrapper {
+            position: absolute;
+            bottom: 0;
+            padding: 0;
+        }
+        #transportPreviousPage1 {
+            display: none;
+        }
+        .transportNextPageDiv, .transportPreviousPageDiv {
+            position: relative;
+            border: 1px solid #000;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            border-radius:5px;
+            width: 100%;
+            height: 25px;
+        }
+        .transportNextPageDiv p, .transportPreviousPageDiv p {
+            padding-left: 10px;
+            line-height: 25px;
+            float: left;
+        }
+        .transportNextPageDiv span, .transportPreviousPageDiv span {
+            float: right;
+            padding-right: 42px;
+            line-height: 25px;
+        }
+
+
+		.footer {
+			position: absolute;
+			width: 100%;
+			display: block;
+			bottom: 0;
+			padding: 0;
+		}
+        .invoiceComment {
+        }
+        .invoiceAmountTotal {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+            border: 1px solid #000;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            border-radius:5px;
+            margin: 5px 0mm 5px 0mm;
+            padding: 0mm;
+        }
+        #vatAmounts {
+            width: 400px;
+            min-height: 100px;
+            border: 1px solid #000;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            border-radius:5px;
+            margin: 10px 0px 10px 10px;
+        }
+        #vatAmounts table {
+            table-layout: fixed;
+            width: 400px;
+            border-collapse: collapse;
+            text-align: right;
+        }
+        #vatAmounts table th {
+            border-bottom: 1px solid #000;
+            font-weight: normal;
+            height: 25px;
+        }
+        #vatAmounts table td {
+        }
+        .paddingLeft10 {
+            padding-left: 10px;
+        }
+        .paddingRight10 {
+            padding-right: 10px;
+        }
+        .receptionistText {
+            margin: 0px 0px 10px 10px;
+            padding: 0;
+        }
+        #totalAmountDiv {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #totalAmountDiv table {
+            text-align: right;
+            border-collapse: collapse;
+        }
+        .totalAmountDivTd {
+            border-top:1px solid #000;
+        }
+        .invoiceClosingText {
+        }
+
+
+		.marginAddress {
+			position: relative;
+		}
+		.marginBottom {
+            position: relative;
+		}
+	</style>
+</head>
+
+<body>
+
+<div id="html-pages">
+    <div class="page" id="page1">
+        <div class="header" id="header1"><div class="companyAddress" style=" display:none;  margin:0mm 0mm 0mm 0mm"><br>Tel: 0612345678<br>Email: test@test.test<br>Web: www.waltercars.eu<br>IBAN: NL49ABNA0991632327<br>BIC: <br>KvK: 29040051<br>Btw: NL000000000B01</div><div class="customerAddress" style="padding:0mm 0mm 0mm 0mm">Mevr. Francien F. Nijholt<br>Beatrixstraat<br>HAARLEM</div><div class="marginAddress" style="height: 0mm"></div><div class="pageMarginLeftAndRight"><div class="invoiceAndCarData"><div><p><b><span>Factuurnummer</span>: PREVIEW</b></p><p><span>Factuurdatum</span>: 17-08-2018</p><p><span>Blad</span>: <i class="pageNumber">1</i> van <i class="totalOfPages">1</i></p><p>Your appointment was on </p> <p><span>Opdrachtnummer</span>: WO334010</p></div><div><p><span>Kenteken</span>: 8-KLR-68</p><p><span>Merk</span>: Lancia</p><p><span>Uitvoering</span>: Delta 2.6 Edition LX</p><p><span>APK geldig tot</span>: 03-01-2019</p><p><span>Tellerstand</span>: 257527 kilometers</p><p><span>Datum eerste toelating</span>: 14-09-2013</p></div><div class="clearAll"></div></div></div><div class="invoiceTableHeader pageMarginLeftAndRight"><table><tbody><tr><th class="alignLeft paddingLeft10" width="120px">Code</th><th class="alignLeft">Omschrijving</th><th width="52px">Aantal</th><th width="80px">Stuksprijs</th><th width="80px">Korting</th><th width="80px">Bedrag</th><th width="30px" class="paddingRight10"></th></tr></tbody></table></div></div>
+
+        <div class="transportPreviousPage" id="transportPreviousPage1"><div class="transportPreviousPageWrapper"><div class="pageMarginLeftAndRight"><div class="transportPreviousPageDiv"><p>TRANSPORT VAN VORIGE PAGINA</p><span></span></div></div></div></div>
+
+        <div class="content pageMarginLeftAndRight" id="contentHeight">
+            <table class="invoiceTableLines" id="invoiceTableLines1"><tbody><tr id="invoiceLine1"><td class="alignLeft paddingLeft10" width="120px">VS 75193</td><td class="alignLeft">oliefilter</td><td width="52px">1.00</td><td width="80px">€ 9.77</td><td width="80px"></td><td width="80px">€ 9.77</td><td class="alignRight paddingRight10" width="30px">1</td></tr></tbody></table>
+
+		</div>
+
+        <div class="transportNextPage" id="transportNextPage1" style="display: none;"><div class="transportNextPageWrapper"><div class="pageMarginLeftAndRight"><div class="transportNextPageDiv"><p>TRANSPORT NAAR VOLGENDE PAGINA</p><span>€ 9.77</span></div></div><div class="marginBottom" style="height:0mm;"></div></div></div>
+
+        <div class="footer" id="footer1" style="display: block;"><div class="pageMarginLeftAndRight"><b class="invoiceComment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b><div class="invoiceAmountTotal"><div id="vatAmounts"><table><tbody><tr><th class="alignLeft paddingLeft10" width="80px">Btwcode</th><th width="50px">%</th><th width="120px">Grondslag</th><th class="paddingRight10" width="120px">BTW Bedrag</th></tr><tr><td class="alignLeft paddingLeft10">1</td><td>22.00</td><td>€ 18.00</td><td class="paddingRight10">€ 11.00</td></tr></tbody></table></div><p class="receptionistText">U werd geholpen door: TODO</p><div id="totalAmountDiv"><table><tbody><tr><td class="align_left" width="100px">Excl. BTW</td><td width="120px">€ 13.00</td></tr><tr><td class="align_left">Totaal BTW</td><td>€ 1.00</td></tr><tr><td class="align_left"><b>Te betalen</b></td><td class="totalAmountDivTd"><b>€ 19.00</b></td></tr></tbody></table></div><div class="clearAll"></div></div><div class="clearAll"></div><b class="invoiceClosingText"></b></div><div class="marginBottom" style="height:0mm"></div></div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+var htmlHeader = '<div class="companyAddress" style=" display:none;  margin:0mm 0mm 0mm 0mm">'+
+        '<br>'+
+        'Tel: 0612345678<br>'+
+        'Email: test@test.test<br>'+
+        'Web: www.waltercars.eu<br>'+
+        'IBAN: NL49ABNA0991632327<br>'+
+        'BIC: <br>'+
+        'KvK: 29040051<br>'+
+        'Btw: NL000000000B01'+
+        '</div>'+
+        '<div class="customerAddress" style="padding:0mm 0mm 0mm 0mm">'+
+        'Mevr. Francien F. Nijholt\x3cbr\x3eBeatrixstraat\x3cbr\x3eHAARLEM'+
+        '</div>'+
+        '<div class="marginAddress" style="height: 0mm"></div>'+
+        '<div class="pageMarginLeftAndRight">'+
+            '<div class="invoiceAndCarData">'+
+                '<div>'+
+                    '<p><b><span>Factuurnummer</span>: PREVIEW</b></p>'+
+                    '<p><span>Factuurdatum</span>: 17-08-2018</p>'+
+                    '<p><span>Blad</span>: <i class="pageNumber">1</i> van <i class="totalOfPages">1</i></p>'+
+                    ''+
+                    '<p>Your appointment was on </p> '+
+                    '<p><span>Opdrachtnummer</span>: WO334010</p>'+
+                '</div>'+
+                '<div>'+
+					''+
+						'<p><span>Kenteken</span>: 8-KLR-68</p>'+
+						'<p><span>Merk</span>: Lancia</p>'+
+						'<p><span>Uitvoering</span>: Delta 2.6 Edition LX</p>'+
+						'<p><span>APK geldig tot</span>: 03-01-2019</p>'+
+						'<p><span>Tellerstand</span>: 257527 kilometers</p>'+
+						'<p><span>Datum eerste toelating</span>: 14-09-2013</p>'+
+					''+
+                '</div>'+
+                '<div class="clearAll"></div>'+
+            '</div>'+
+        '</div>'+
+        '<div class="invoiceTableHeader pageMarginLeftAndRight">'+
+            '<table>'+
+                '<tr>'+
+                    '<th class="alignLeft paddingLeft10" width="120px">Code</th>'+
+                    '<th class="alignLeft">Omschrijving</th>'+
+                    '<th width="52px">Aantal</th>'+
+                    '<th width="80px">Stuksprijs</th>'+
+                    '<th width="80px">Korting</th>'+
+                    '<th width="80px">Bedrag</th>'+
+                    '<th width="30px" class="paddingRight10"></th>'+
+                '</tr>'+
+            '</table>'+
+        '</div>';
+document.getElementById("header1").innerHTML = htmlHeader;
+
+
+var htmlTransportNextPage = '<div class="transportNextPageWrapper"><div class="pageMarginLeftAndRight">'+
+            '<div class="transportNextPageDiv">'+
+            '<p>TRANSPORT NAAR VOLGENDE PAGINA</p>'+
+            '<span></span>'+
+            '</div>'+
+        '</div>'+
+        '<div class="marginBottom" style="height:0mm;"></div></div>';
+document.getElementById("transportNextPage1").innerHTML = htmlTransportNextPage;
+
+
+var htmlTransportPreviousPage = '<div class="transportPreviousPageWrapper"><div class="pageMarginLeftAndRight">'+
+        '<div class="transportPreviousPageDiv">'+
+        '<p>TRANSPORT VAN VORIGE PAGINA</p>'+
+        '<span></span>'+
+        '</div>'+
+        '</div>'+
+        '</div>';
+document.getElementById("transportPreviousPage1").innerHTML = htmlTransportPreviousPage;
+
+
+var htmlFooter = '<div class="pageMarginLeftAndRight">'+
+            '<b class="invoiceComment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>'+
+            '<div class="invoiceAmountTotal">'+
+                '<div id="vatAmounts">'+
+                    '<table>'+
+                        '<tr>'+
+                            '<th class="alignLeft paddingLeft10" width="80px">Btwcode</th>'+
+                            '<th width="50px">%</th>'+
+                            '<th width="120px">Grondslag</th>'+
+                            '<th class="paddingRight10" width="120px">BTW Bedrag</th>'+
+                        '</tr>'+
+
+                        '<tr>'+
+                            '<td class="alignLeft paddingLeft10">1</td>'+
+                            '<td>22.00</td>'+
+                            '<td>&euro; 18.00</td>'+
+                            '<td class="paddingRight10">&euro; 11.00</td>'+
+                        '</tr>'+
+
+                    '</table>'+
+                '</div>'+
+                '<p class="receptionistText">U werd geholpen door: TODO</p>'+
+                '<div id="totalAmountDiv">'+
+                    '<table>'+
+
+                        '<tr><td class="align_left" width="100px">Excl. BTW</td><td width="120px">&euro; 13.00</td></tr>'+
+                        '<tr><td class="align_left">Totaal BTW</td><td>&euro; 1.00</td></tr>'+
+                        '<tr><td class="align_left"><b>Te betalen</b></td><td class="totalAmountDivTd"><b>&euro; 19.00</b></td></tr>'+
+                    '</table>'+
+                '</div>'+
+                '<div class="clearAll"></div>'+
+            '</div>'+
+            '<div class="clearAll"></div>'+
+            '<b class="invoiceClosingText"></b>'+
+        '</div>'+
+        '<div class="marginBottom" style="height:0mm"></div>';
+document.getElementById("footer1").innerHTML = htmlFooter;
+
+
+var divHeader = document.getElementsByClassName('header')[0];
+var divContent = document.getElementsByClassName('content')[0];
+var divFooter = document.getElementsByClassName('footer')[0];
+var divTransportNext = document.getElementsByClassName('transportNextPageWrapper')[0];
+
+
+var divCustomerAddress = document.getElementsByClassName('customerAddress')[0];
+var divMarginBottom = document.getElementsByClassName('marginBottom')[0];
+
+
+var contentHeightFixed = 1122 - divHeader.offsetHeight - divFooter.offsetHeight;
+
+
+var contentHeightFixedTransport = 1122 - divHeader.offsetHeight - divTransportNext.offsetHeight;
+
+
+var totalHeightOfContent = divContent.offsetHeight;
+
+document.getElementById("contentHeight").style.height = contentHeightFixed;
+
+
+var numberOfPagesCount = totalHeightOfContent / contentHeightFixed;
+
+console.log('totalHeightOfContent='+totalHeightOfContent+'px');
+console.log('contentHeightFixed='+contentHeightFixed+'px');
+console.log('contentHeightFixedTransport='+contentHeightFixedTransport+'px');
+console.log('numberOfPagesCount='+numberOfPagesCount);
+
+var numberOfPagesCount = numberOfPagesCount + 1;
+if (numberOfPagesCount > 2) {
+    for (i2 = 2; i2 < numberOfPagesCount; i2 = i2 + 1) {
+        var totalNumberOfPages = i2;
+        addPage(i2);
+    }
+} else {
+    var totalNumberOfPages = 1;
+}
+
+
+
+
+function addPage(number) {
+
+
+    var addDivPage = document.createElement('div');
+    addDivPage.className = 'page';
+    addDivPage.id = 'page'+number;
+    document.getElementById('html-pages').appendChild(addDivPage);
+
+
+    var addDivHeader = document.createElement('div');
+    addDivHeader.className = 'header';
+    addDivHeader.id = 'header'+number;
+    document.getElementById('page'+number).appendChild(addDivHeader);
+    document.getElementById('header'+number).innerHTML = htmlHeader;
+
+
+    document.getElementById('page'+number).getElementsByClassName('pageNumber')[0].innerHTML = number;
+
+
+    var addDivTransportPreviousPage = document.createElement('div');
+    addDivTransportPreviousPage.className = 'transportPreviousPage';
+    addDivTransportPreviousPage.id = 'transportPreviousPage'+number;
+    document.getElementById('page'+number).appendChild(addDivTransportPreviousPage);
+    document.getElementById('transportPreviousPage'+number).innerHTML = htmlTransportPreviousPage;
+
+
+    var addDivContent = document.createElement('div');
+    addDivContent.className = 'content pageMarginLeftAndRight';
+    addDivContent.id = 'contentHeight'+number;
+    document.getElementById('page'+number).appendChild(addDivContent);
+    var addDivContent2 = document.createElement('table');
+    addDivContent2.className = 'invoiceTableLines';
+    addDivContent2.id = 'invoiceTableLines'+number;
+    document.getElementById('contentHeight'+number).appendChild(addDivContent2);
+
+
+    var addDivTransportNextPage = document.createElement('div');
+    addDivTransportNextPage.className = 'transportNextPage';
+    addDivTransportNextPage.id = 'transportNextPage'+number;
+    document.getElementById('page'+number).appendChild(addDivTransportNextPage);
+    document.getElementById('transportNextPage'+number).innerHTML = htmlTransportNextPage;
+
+
+    var addDivFooter = document.createElement('div');
+    addDivFooter.className = 'footer';
+    addDivFooter.id = 'footer'+number;
+    document.getElementById('page'+number).appendChild(addDivFooter);
+    document.getElementById('footer'+number).innerHTML = htmlFooter;
+
+}
+
+
+var rowsPerPage = contentHeightFixed / 25;
+var rowsPerPage = Math.floor(rowsPerPage);
+var rowsPerPage = rowsPerPage - 1;
+console.log('rowsPerPage='+rowsPerPage);
+
+
+for(page_i = 1; page_i <= totalNumberOfPages; page_i = page_i + 1) {
+    document.getElementById('page'+page_i).getElementsByClassName('totalOfPages')[0].innerHTML = totalNumberOfPages;
+}
+
+
+console.log('totalNumberOfPages='+totalNumberOfPages);
+for (i3 = 1; i3 <= totalNumberOfPages; i3 = i3 + 1) {
+    console.log('footer op pagina'+i3);
+    if(i3 == totalNumberOfPages) {
+        document.getElementById("footer"+i3).style.display = "block";
+        document.getElementById("transportNextPage"+i3).style.display = "none";
+    } else {
+        document.getElementById("footer" + i3).style.display = "none";
+        document.getElementById("transportNextPage" + i3).style.display = "block";
+    }
+}
+
+
+var invoiceLineNumber = 0;
+var invoiceLinesArray = [];
+ <!--loop (range) over elke factuurregel, nieuwe var line bevat elke regel in de loop-->
+    var invoiceLineNumber = invoiceLineNumber + 1;
+    invoiceLinesArray.push('<tr id="invoiceLine'+invoiceLineNumber+'">'+
+            '<td class="alignLeft paddingLeft10" width="120px">VS 75193</td>'+
+            '<td class="alignLeft">oliefilter</td>'+
+            '<td width="52px">1.00</td>'+
+            '<td width="80px">&euro; 9.77</td>'+
+            '<td width="80px"></td>'+
+            '<td width="80px">&euro; 9.77</td>'+
+            '<td class="alignRight paddingRight10" width="30px">1</td>'+
+            '</tr>');
+
+
+console.log('Factuur regels totaal='+invoiceLineNumber);
+
+
+document.getElementById('invoiceTableLines1').innerHTML = invoiceLinesArray.join('');
+
+
+var invoiceLineTotalHeight = 0;
+var lineNumber = 0;
+var maxAantal = [];
+var i5 = 1;
+
+for(i4 = 1; i4 <= invoiceLineNumber;) {
+    lineNumber=lineNumber+1;
+    var invoiceLineHeightTr = document.getElementById('invoiceLine'+i4);
+
+    invoiceLineTotalHeight = invoiceLineTotalHeight + invoiceLineHeightTr.offsetHeight;
+    console.log('('+lineNumber+')invoiceLineHeight'+i4+'='+invoiceLineHeightTr.offsetHeight+'px / totale hoogte='+invoiceLineTotalHeight+'px');
+
+    var pageNumberCount = totalNumberOfPages;
+
+    if(totalNumberOfPages == pageNumberCount && invoiceLineTotalHeight >= contentHeightFixedTransport) {
+        var regelMax = lineNumber-1;
+        console.log('aantal regels op pagina='+regelMax);
+        invoiceLineTotalHeight = 0;
+        lineNumber = 0;
+        maxAantal[i5] = regelMax;
+        i5=i5+1;
+        pageNumberCount = pageNumberCount + 1;
+        console.log('(transport)pageNumberCount='+pageNumberCount);
+    } else if(totalNumberOfPages > pageNumberCount && invoiceLineTotalHeight >= contentHeightFixed) {
+        var regelMax = lineNumber-1;
+        console.log('aantal regels op pagina='+regelMax);
+        invoiceLineTotalHeight = 0;
+        lineNumber = 0;
+        maxAantal[i5] = regelMax;
+        i5=i5+1;
+        pageNumberCount = pageNumberCount + 1;
+        console.log('(gewoon)pageNumberCount='+pageNumberCount);
+    } else {
+        i4=i4+1;
+    }
+}
+
+console.log('aantal regels op pagina='+lineNumber);
+maxAantal[i5] = lineNumber;
+
+
+var invoiceSubtotalArray = [];
+ <!--loop (range) over elke factuurregel, nieuwe var line bevat elke regel in de loop-->
+    invoiceSubtotalArray.push('9.77');
+
+
+console.log('invoiceSubtotalArray='+invoiceSubtotalArray);
+
+
+function add(a, b) {
+    return parseFloat(a) + parseFloat(b);
+}
+
+var subTotaal = [];
+for(i6 = 1; i6 <= totalNumberOfPages; i6++) {
+    if(i6==1) {
+        var maxAantalBegin=0;
+        var maxAantalEnd=maxAantal[i6];
+    } else {
+        maxAantalBegin = maxAantalEnd;
+        console.log('maxAantalBegin='+maxAantalBegin);
+        maxAantalEnd += maxAantal[i6];
+        console.log('maxAantalEnd='+maxAantalEnd);
+    }
+
+    var total = invoiceLinesArray.slice(maxAantalBegin, maxAantalEnd);
+    document.getElementById('invoiceTableLines'+i6).innerHTML = total.join('');
+
+
+    subTotaal[i6] = invoiceSubtotalArray.slice(0, maxAantalEnd).reduce(add, 0);
+    document.getElementById('transportNextPage'+i6).getElementsByTagName('span')[0].innerHTML = '&euro; '+subTotaal[i6].toFixed(2);
+    var previousPageNumber = i6 + 1;
+    if(totalNumberOfPages != i6) {
+        document.getElementById('transportPreviousPage' + previousPageNumber).getElementsByTagName('span')[0].innerHTML = '&euro; ' + subTotaal[i6].toFixed(2);
+    }
+}
+</script>
+</body></html>
